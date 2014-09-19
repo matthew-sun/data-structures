@@ -50,5 +50,50 @@ var List = Class({
             return true;
         }
         return false;
+    },
+    // 清空列表中的所有的元素
+    clear : function() {
+        delete this.dataStore;
+        this.dataStore = [];
+        this.listSize = this.pos = 0; // 空列表
+    },
+    // 判断给定值是否在列表中
+    contains : function(element) {
+        if ( this.find(element) === -1 ) {
+            return false;
+        }
+        return true;
+    },
+    // 遍历列表
+    // 移动到列表的第一个元素
+    front : function() {
+        this.pos = 0;
+    },
+    // 移动到列表的最后一个元素
+    end : function() {
+        this.pos = this.listSize-1;
+    },
+    // <-
+    prev : function() {
+        if( this.pos > 0 ) {
+            --this.pos;
+        }
+    },
+    // ->
+    next : function() {
+        if( this.pos < this.listSize-1 ){
+            ++this.pos;
+        }
+    },
+    // 当前位置
+    currPos : function() {
+        return this.pos;
+    },
+    // 移动到某一位置
+    moveTo : function(position) {
+        this.pos = position;
+    },
+    getElement : function() {
+        return this.dataStore[this.pos];
     }
 })
