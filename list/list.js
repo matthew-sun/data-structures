@@ -28,7 +28,7 @@ var List = Class({
         var foundAt = this.find(element);
         if( foundAt > -1 ) {
             this.dataStore.splice(foundAt,1);
-            --this.listSize;
+            this.listSize--;
             return true;
         }
         return false;
@@ -46,16 +46,10 @@ var List = Class({
         var insertPos = this.find(after);
         if( insertPos > -1 ) {
             this.dataStore.splice(insertPos+1,0,element);
-            ++this.listSize;
+            this.listSize++;
             return true;
         }
         return false;
-    },
-    // 清空列表中的所有的元素
-    clear : function() {
-        delete this.dataStore;
-        this.dataStore = [];
-        this.listSize = this.pos = 0; // 空列表
     },
     // 判断给定值是否在列表中
     contains : function(element) {
@@ -76,13 +70,13 @@ var List = Class({
     // <-
     prev : function() {
         if( this.pos > 0 ) {
-            --this.pos;
+            this.pos--;
         }
     },
     // ->
     next : function() {
         if( this.pos < this.listSize-1 ){
-            ++this.pos;
+            this.pos++;
         }
     },
     // 当前位置
@@ -93,7 +87,14 @@ var List = Class({
     moveTo : function(position) {
         this.pos = position;
     },
+    // 获取当前位置的元素
     getElement : function() {
         return this.dataStore[this.pos];
+    },
+    // 清空列表中的所有的元素
+    clear : function() {
+        delete this.dataStore;
+        this.dataStore = [];
+        this.listSize = this.pos = 0; // 空列表
     }
 })
