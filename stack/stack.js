@@ -11,7 +11,7 @@ var Stack = Class({
         this.top = 0;
     },
     // 向栈中压入一个元素
-    push : function() {
+    push : function(element) {
         this.dataStore[this.top++] = element;
     },
     // 返回栈顶元素，同时将top-1(出栈)
