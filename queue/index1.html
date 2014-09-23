@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>List</title>
+    <title>Queue</title>
     <script src='class.js'></script>
     <script src='queue.js'></script>
     <script src='distribute.js'></script>
@@ -15,7 +15,7 @@
     for(var i=0; i<=10 ; i++) {
         nums[i] = Math.floor(Math.floor(Math.random()*101));
     }
-    
+
     distribute(nums,queues,10,1);
     collect(queues,nums);
     distribute(nums,queues,10,10);
