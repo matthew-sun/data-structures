@@ -15,6 +15,7 @@ var Graph = Class({
     init : function(v) {
         this.setup(v);
     },
+    // 初始化
     setup : function(v) {
          this.vertices = v;
          this.edges = 0;
